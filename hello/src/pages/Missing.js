@@ -10,7 +10,7 @@ const User = ({ userData }) => {
   );
 };
 
-const UserList = () => {
+const Missing = () => {
   const users = [
     { email: '가방', name: '홍길동' },
     { email: '모자', name: '임인범' },
@@ -29,11 +29,14 @@ const UserList = () => {
 
       <tbody>
         {users.map((user) => (
-          <User userData={user} /> //User는 자식 컴포넌트
+          // map함수를 이용하여 오브젝트 하나하나씩 가져온다
+          // User는 자식 컴포넌트
+          // userData는 prop로써 자식한테 데이터를 넘겨준다는 의미
+          <User userData={user} />
         ))}
       </tbody>
     </table>
   );
 };
 
-export default UserList;
+export default Missing;

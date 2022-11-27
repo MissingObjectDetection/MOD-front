@@ -6,9 +6,17 @@
 .black-nav{
   display: flex;
   background: black;
+  padding: 15px;
   width: 100%;
   color: white;
   padding-left: 20px;
+}
+
+.video {
+  margin-top: 20px;
+  padding: 180px;
+  background: #eee;
+  text-align: left;
 }
 
 div {
@@ -19,13 +27,6 @@ div {
   padding-left: 20px;
   text-align: left;
   border-bottom: 1px solid grey;
-}
-
-.model {
-  margin-top: 20px;
-  padding: 20px;
-  background: #eee;
-  text-align: left;
 }
 
 
