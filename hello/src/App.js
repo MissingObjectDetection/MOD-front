@@ -24,6 +24,7 @@ function App() {
         <Link to='/counter'>Counter</Link> | <Link to='/input'>Input</Link> |{' '}
         <Link to='/input2'>Input2</Link> | <Link to='/list'>server List</Link>
       </nav>
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
