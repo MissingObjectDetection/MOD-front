@@ -1,107 +1,34 @@
-// client > src > components > views > VideoUploadPage > VideoUploadPage.js
-
 import React, { useState } from 'react';
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
-import Dropzone from 'react-dropzone';
+import styled from 'styled-components';
 
-const { TextArea } = Input;
-const { Title } = Typography;
+const First = () => {
+  const [file, setFile] = useState({});
 
-const PrivateOptions = [
-  { value: 0, label: 'Private' },
-  { value: 1, label: 'Public' },
-];
+  const imageUpload = (e) => {
+    const imageTpye = e.target.files[0].type.includes('image');
+    const videoTpye = e.target.files[0].type.includes('video');
 
-const CategoryOptions = [
-  { value: 0, label: 'Film & Animation' },
-  { value: 1, label: 'Autos & Vehicles' },
-  { value: 2, label: 'Music' },
-  { value: 3, label: 'Pets & Animals' },
-];
-function VideoUploadPage() {
-  const [VideoTitle, setVideoTitle] = useState('');
-  const [Description, setDescription] = useState('');
-  const [Private, setPrivate] = useState(0);
-  const [Category, setCategory] = useState('Film & Animation');
+    setFile({
+      url: URL.createObjectURL(e.target.files[0]),
+      image: imageTpye,
+      video: videoTpye,
+    });
+    console.log(imageTpye);
+  };
 
-  const onTitleChange = (e) => {
-    setVideoTitle(e.currentTarget.value);
-  };
-  const onDescriptionChange = (e) => {
-    setDescription(e.currentTarget.value);
-  };
-  const onPrivateChange = (e) => {
-    setPrivate(e.currentTarget.value);
-  };
-  const onCategoryChange = (e) => {
-    setCategory(e.currentTarget.value);
-  };
   return (
-    <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
-      <div style={{ textAlign: 'center', marginBotom: '2rem' }}>
-        <Title level={2}>Upload Video</Title>
-      </div>
-      <Form onSubmit>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          {/* Drop zone */}
-          <Dropzone onDrop multiple maxSize>
-            {({ getRootProps, getInputProps }) => (
-              <div
-                style={{
-                  width: '300px',
-                  height: '240px',
-                  border: '1px solid lightgray',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-                {...getRootProps()}
-              >
-                <input {...getInputProps()} />
-                <Icon type='plus' style={{ fontSize: '3rem' }} />
-              </div>
-            )}
-          </Dropzone>
-
-          {/* Thumbnail */}
-          <div>
-            <img />
-          </div>
-        </div>
-        <br />
-        <br />
-        <label>Title</label>
-        <Input onChange={onTitleChange} value={VideoTitle} />
-        <br />
-        <br />
-        <label>Description</label>
-        <TextArea onChange={onDescriptionChange} value={Description} />
-        <br />
-        <br />
-
-        <select onChange={onPrivateChange}>
-          {PrivateOptions.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-        <br />
-        <br />
-        <select onChange={onCategoryChange}>
-          {CategoryOptions.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-
-        <Button type='primary' size='large' onClick>
-          Submit
-        </Button>
-      </Form>
-    </div>
+    <Wrap>
+      <h1>1번</h1>
+      <input type='file' onChange={imageUpload} />
+      {file.image && <img src={file.url} />}
+      {file.video && <video src={file.url} controls width='350px' />}
+    </Wrap>
   );
-}
+};
 
-export default VideoUploadPage;
+export default First;
+
+const Wrap = styled.div`
+  border: 1px solid gray;
+  padding: 100px;
+`;

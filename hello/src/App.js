@@ -9,6 +9,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import People from './pages/People';
 import Object from './pages/Object';
 import Missing from './pages/Missing';
+import VideoUploadPage from './pages/VideoUploadPage';
 // import Counter from './pages/Counter';
 // import Input from './pages/Input';
 // import Input2 from './pages/Input2';
@@ -35,6 +36,7 @@ function App() {
         <Route path='/' element={<People />} />
         <Route path='/Object' element={<Object />} />
         <Route path='/Missing' element={<Missing />} />
+        <Route path='/VideoUploadPage' element={<VideoUploadPage />} />
         {/* <Route path='/counter' element={<Counter />} />
         <Route path='/input' element={<Input />} />
         <Route path='/input2' element={<Input2 />} /> */}
