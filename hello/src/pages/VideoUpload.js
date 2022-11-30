@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const First = () => {
+const VideoUpload = () => {
   const [file, setFile] = useState({});
 
   const imageUpload = (e) => {
+    console.log(e.target.files);
+
     const imageTpye = e.target.files[0].type.includes('image');
     const videoTpye = e.target.files[0].type.includes('video');
 
@@ -13,22 +15,24 @@ const First = () => {
       image: imageTpye,
       video: videoTpye,
     });
-    console.log(imageTpye);
+    console.log(videoTpye);
   };
 
   return (
     <Wrap>
-      <h1>1번</h1>
       <input type='file' onChange={imageUpload} />
       {file.image && <img src={file.url} />}
-      {file.video && <video src={file.url} controls width='350px' />}
+      {file.video && <video src={file.url} controls width='1000px' />}
     </Wrap>
   );
 };
 
-export default First;
+export default VideoUpload;
 
 const Wrap = styled.div`
   border: 1px solid gray;
-  padding: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #eee;
+  text-align: left;
 `;
