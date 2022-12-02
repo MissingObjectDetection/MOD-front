@@ -9,6 +9,7 @@ import People from './pages/People';
 import Object from './pages/Object';
 import Missing from './pages/Missing';
 import VideoUpload from './pages/VideoUpload';
+import RestAPI from './pages/RestAPI';
 // import Counter from './pages/Counter';
 // import Input from './pages/Input';
 // import Input2 from './pages/Input2';
@@ -19,7 +20,7 @@ function App() {
       <div className='black-nav'>
         <h4>Missing Object Detection</h4>
       </div>
-
+      <RestAPI />
       <VideoUpload />
 
       <nav>
