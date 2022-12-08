@@ -15,7 +15,7 @@ const VideoSend = () => {
     formData.append('file', files[0]);
     console.log(files[0]);
 
-    Axios.post('http://3.37.87.189/mod/upload', formData, config).then(
+    Axios.post('http://3.37.87.189:8000/mod/upload', formData, config).then(
       (response) => {
         //서버 전송에 성공하면 실행
         if (response.data.success) {
