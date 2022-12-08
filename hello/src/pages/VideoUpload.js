@@ -9,11 +9,12 @@ const VideoUpload = () => {
 
     const imageTpye = e.target.files[0].type.includes('image');
     const videoTpye = e.target.files[0].type.includes('video');
-
+      
     setFile({
       url: URL.createObjectURL(e.target.files[0]),
       image: imageTpye,
       video: videoTpye,
+      
     });
     console.log(videoTpye);
   };
