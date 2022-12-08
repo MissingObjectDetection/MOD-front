@@ -15,22 +15,24 @@ const VideoSend = () => {
     formData.append('file', files[0]);
     console.log(files[0]);
 
-    Axios.post('3.37.87.189/mod/upload', formData, config).then((response) => {
-      //서버 전송에 성공하면 실행
-      if (response.data.success) {
-        console.log(response.data);
+    Axios.post('http://3.37.87.189/mod/upload', formData, config).then(
+      (response) => {
+        //서버 전송에 성공하면 실행
+        if (response.data.success) {
+          console.log(response.data);
 
-        //videoType이 true면 영상 출력 가능
-        const videoType = files[0].type.includes('video');
-        setPath({
-          url: '3.37.87.189:8000/media/' + response.data.video,
-          video: videoType,
-        });
-        console.log(path.url);
-      } else {
-        alert('비디오 업로드를 실패했습니다.');
+          //videoType이 true면 영상 출력 가능
+          const videoType = files[0].type.includes('video');
+          setPath({
+            url: 'http://3.37.87.189:8000/media/' + response.data.video,
+            video: videoType,
+          });
+          console.log(path.url);
+        } else {
+          alert('비디오 업로드를 실패했습니다.');
+        }
       }
-    });
+    );
   };
 
   return (
