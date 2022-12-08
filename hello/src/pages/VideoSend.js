@@ -1,24 +1,32 @@
 import React, { useState } from 'react';
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
+import styled from 'styled-components';
 
-const VideoUploadPage = () => {
+const VideoSend = () => {
+  const [path, setPath] = useState({});
+
   const onDrop = (files) => {
-    //올린파일에대한 정보가 files에대입
-
     let formData = new FormData();
     const config = {
       header: { 'content-type': 'multipart/form-data' },
     };
     formData.append('file', files[0]);
-
-    console.log(files);
+    console.log(files[0]);
 
     Axios.post('3.37.87.189/mod/upload', formData, config).then((response) => {
+      //서버 전송에 성공하면 실행
       if (response.data.success) {
         console.log(response.data);
+
+        //videoType이 true면 영상 출력 가능
+        const videoType = files[0].type.includes('video');
+        setPath({
+          url: '3.37.87.189:8000/media/' + response.data.video,
+          video: videoType,
+        });
+        console.log(path.url);
       } else {
         alert('비디오 업로드를 실패했습니다.');
       }
@@ -33,7 +41,6 @@ const VideoUploadPage = () => {
       }}
     >
       {/* Drop zone 부분*/}
-
       <Dropzone onDrop={onDrop} multiple={false} maxSize={1000000000}>
         {({ getRootProps, getInputProps }) => (
           <div
@@ -52,8 +59,20 @@ const VideoUploadPage = () => {
           </div>
         )}
       </Dropzone>
+      {/* 비디오 출력 부분 */}
+      <Wrap>
+        {path.video && <video src={path.url} controls width='1000px' />}
+      </Wrap>{' '}
     </div>
   );
 };
 
-export default VideoUploadPage;
+const Wrap = styled.div`
+  border: 1px solid gray;
+  margin-top: 10px;
+  padding: 10px;
+  background: #eee;
+  text-align: left;
+`;
+
+export default VideoSend;

@@ -21,7 +21,7 @@ function App() {
         <h4>Missing Object Detection</h4>
       </div>
       <VideoSend />
-      <VideoUpload />
+      {/* <VideoUpload /> */}
 
       <nav>
         <Link to='/'>People</Link> | <Link to='/Object'>Object</Link> |{' '}

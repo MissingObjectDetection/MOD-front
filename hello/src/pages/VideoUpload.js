@@ -5,24 +5,18 @@ const VideoUpload = () => {
   const [file, setFile] = useState({});
 
   const imageUpload = (e) => {
-    console.log(e.target.files);
+    const videoType = e.target.files[0].type.includes('video');
 
-    const imageTpye = e.target.files[0].type.includes('image');
-    const videoTpye = e.target.files[0].type.includes('video');
-      
     setFile({
       url: URL.createObjectURL(e.target.files[0]),
-      image: imageTpye,
-      video: videoTpye,
-      
+      video: videoType,
     });
-    console.log(videoTpye);
+    console.log(file);
   };
 
   return (
     <Wrap>
       <input type='file' onChange={imageUpload} />
-      {file.image && <img src={file.url} />}
       {file.video && <video src={file.url} controls width='1000px' />}
     </Wrap>
   );
