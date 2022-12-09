@@ -6,15 +6,36 @@ import styled from 'styled-components';
 import CSRFToken from './CSRFToken';
 
 const VideoSend = () => {
+  Axios.defaults.xsrfCookieName = 'csrftoken';
+  Axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].replace(' ', '');
+        //var cookie = jQuery.trim(cookies[i]); 당신이 만약 jQuery를 사용한다면, 위 코드 대신 이 코드를 사용하여도 좋다
+        if (cookie.substring(0, name.length + 1) === name + '=') {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
   const [path, setPath] = useState({});
 
   const onDrop = (files) => {
     //formData, config
+    const csrftoken = getCookie('csrftoken');
+
     let formData = new FormData();
     const config = {
       header: {
         'content-type': 'multipart/form-data',
-        'X-CSRFToken': CSRFToken,
+        'X-CSRFToken': csrftoken,
       },
     };
     formData.append('file', files[0]);
