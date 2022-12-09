@@ -29,6 +29,7 @@ const VideoSend = () => {
   const onDrop = (files) => {
     //formData, config
     const csrftoken = getCookie('csrftoken');
+    console.log(csrftoken);
 
     let formData = new FormData();
     const config = {
