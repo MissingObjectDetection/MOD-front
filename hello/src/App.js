@@ -10,7 +10,6 @@ import Object from './pages/Object';
 import Missing from './pages/Missing';
 import VideoUpload from './pages/VideoUpload';
 import VideoSend from './pages/VideoSend';
-import CSRFToken from './pages/CSRFToken';
 
 function App() {
   return (

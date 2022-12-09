@@ -3,7 +3,6 @@ import { PlusOutlined } from '@ant-design/icons';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
 import styled from 'styled-components';
-import CSRFToken from './CSRFToken';
 
 const VideoSend = () => {
   Axios.defaults.xsrfCookieName = 'csrftoken';
