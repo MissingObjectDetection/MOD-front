@@ -10,6 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <CSRFToken />
     </BrowserRouter>
   </React.StrictMode>
 );

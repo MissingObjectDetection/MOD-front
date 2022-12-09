@@ -12,9 +12,6 @@ import VideoUpload from './pages/VideoUpload';
 import VideoSend from './pages/VideoSend';
 
 function App() {
-  axios.defaults.xsrfCookieName = 'csrftoken';
-  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-  axios.defaults.headers.common['X-CSRFToken'] = getCookie('csrftoken');
   return (
     <div className='App'>
       <div className='black-nav'>
