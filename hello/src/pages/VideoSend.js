@@ -8,6 +8,7 @@ const VideoSend = () => {
   const [path, setPath] = useState({});
 
   const onDrop = (files) => {
+    //formData, config
     let formData = new FormData();
     const config = {
       header: { 'content-type': 'multipart/form-data' },
@@ -15,9 +16,12 @@ const VideoSend = () => {
     formData.append('file', files[0]);
     console.log(files[0]);
 
-    Axios.post('http://3.37.87.189:8000/mod/upload/', formData, config).then(
-      (response) => {
-        //서버 전송에 성공하면 실행
+    // post 요청
+    Axios.post('http://3.37.87.189:8000/mod/upload/', formData, config)
+      .then((response) => {
+        console.log('여기 출력 되는지 확인');
+        //서버 전송에 성공
+        //생각해보니까 응답 json에 success가 있나?
         if (response.data.success) {
           console.log(response.data);
 
@@ -27,12 +31,17 @@ const VideoSend = () => {
             url: 'http://3.37.87.189:8000/media/' + response.data.video,
             video: videoType,
           });
+
+          //setPath 잘됐는지 확인 하셈
           console.log(path.url);
+          console.log(path.video);
         } else {
           alert('비디오 업로드를 실패했습니다.');
         }
-      }
-    );
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
