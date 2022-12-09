@@ -22,22 +22,19 @@ const VideoSend = () => {
         console.log('여기 출력 되는지 확인');
         //서버 전송에 성공
         //생각해보니까 응답 json에 success가 있나?
-        if (response.data.success) {
-          console.log(response.data);
 
-          //videoType이 true면 영상 출력 가능
-          const videoType = files[0].type.includes('video');
-          setPath({
-            url: 'http://3.37.87.189:8000/media/' + response.data.video,
-            video: videoType,
-          });
+        console.log(response.data);
 
-          //setPath 잘됐는지 확인 하셈
-          console.log(path.url);
-          console.log(path.video);
-        } else {
-          alert('비디오 업로드를 실패했습니다.');
-        }
+        //videoType이 true면 영상 출력 가능
+        const videoType = files[0].type.includes('video');
+        setPath({
+          url: 'http://3.37.87.189:8000/media/' + response.data.video,
+          video: videoType,
+        });
+
+        //setPath 잘됐는지 확인 하셈
+        console.log(path.url);
+        console.log(path.video);
       })
       .catch(function (error) {
         console.log(error);
