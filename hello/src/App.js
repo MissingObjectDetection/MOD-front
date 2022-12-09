@@ -10,7 +10,7 @@ import Object from './pages/Object';
 import Missing from './pages/Missing';
 import VideoUpload from './pages/VideoUpload';
 import VideoSend from './pages/VideoSend';
-import CSRFToken from './pages/csrftoken';
+import CSRFToken from './pages/CSRFToken';
 
 function App() {
   return (
@@ -18,9 +18,8 @@ function App() {
       <div className='black-nav'>
         <h4>Missing Object Detection</h4>
       </div>
-      <VideoSend>
-        <CSRFToken />
-      </VideoSend>
+      {/* <CSRFToken /> */}
+      <VideoSend></VideoSend>
       {/* <VideoUpload /> */}
 
       <nav>

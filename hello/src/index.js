@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App'; //App.js
-import CSRFToken from './pages/csrftoken';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

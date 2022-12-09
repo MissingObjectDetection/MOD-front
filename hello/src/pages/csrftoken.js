@@ -22,7 +22,7 @@ function getCookie(name) {
 }
 const CSRFToken = () => {
   const csrftoken = getCookie('csrftoken');
-  return <input type='hidden' name='csrfmiddlewaretoken' value={csrftoken} />;
+  return csrftoken;
 };
 
 export default CSRFToken; // 이걸로 <CSRFToken/>이라는 컴포넌트를 사용할 수 있게 됨.

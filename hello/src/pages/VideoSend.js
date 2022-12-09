@@ -3,6 +3,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
 import styled from 'styled-components';
+import CSRFToken from './CSRFToken';
 
 const VideoSend = () => {
   const [path, setPath] = useState({});
@@ -11,7 +12,10 @@ const VideoSend = () => {
     //formData, config
     let formData = new FormData();
     const config = {
-      header: { 'content-type': 'multipart/form-data' },
+      header: {
+        'content-type': 'multipart/form-data',
+        'X-CSRFToken': CSRFToken,
+      },
     };
     formData.append('file', files[0]);
     console.log(files[0]);
