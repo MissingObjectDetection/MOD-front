@@ -42,7 +42,7 @@ const VideoSend = () => {
     console.log(files[0]);
 
     // post 요청
-    Axios.post('http://3.37.87.189:8000/mod/upload/', formData, config)
+    Axios.post('http://15.164.100.134:8000/mod/upload/', formData, config)
       .then((response) => {
         console.log('여기 출력 되는지 확인');
         //서버 전송에 성공
@@ -53,7 +53,7 @@ const VideoSend = () => {
         //videoType이 true면 영상 출력 가능
         const videoType = files[0].type.includes('video');
         setPath({
-          url: 'http://3.37.87.189:8000/media/' + response.data.video,
+          url: 'http://15.164.100.134:8000/media/' + response.data.video,
           video: videoType,
         });
 

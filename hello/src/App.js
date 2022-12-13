@@ -4,6 +4,7 @@ import './App.css';
 
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import People from './pages/People';
 import Object from './pages/Object';
@@ -22,12 +23,12 @@ function App() {
       {/* <VideoUpload /> */}
 
       <nav>
-        <Link to='/'>People</Link> | <Link to='/Object'>Object</Link> |{' '}
+        <Link to='/People'>People</Link> | <Link to='/Object'>Object</Link> |{' '}
         <Link to='/Missing'>Missing</Link>
       </nav>
 
       <Routes>
-        <Route path='/' element={<People />} />
+        <Route path='/People' element={<People />} />
         <Route path='/Object' element={<Object />} />
         <Route path='/Missing' element={<Missing />} />
       </Routes>

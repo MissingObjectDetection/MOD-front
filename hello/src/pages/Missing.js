@@ -21,9 +21,9 @@ const Missing = () => {
           <span> 🔴 </span>
           {title[0]}{' '}
         </h4>
-        <p>Class : Wallet</p>
+        <p>Class : Backpack</p>
         <p>Owner : #1</p>
-        <p>Loss Time : 2:08</p>
+        <p>Loss Time : 00:22</p>
       </div>
     </div>
   );
