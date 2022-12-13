@@ -17,7 +17,7 @@ const VideoUpload = () => {
   return (
     <Wrap>
       <input type='file' onChange={imageUpload} />
-      {file.video && <video src={file.url} controls width='1000px' />}
+      {file.video && <video src={file.url} controls width='700px' />}
     </Wrap>
   );
 };
