@@ -38,7 +38,7 @@ const VideoSend = () => {
         'X-CSRFToken': csrftoken,
       },
     };
-    formData.append('file', files[0]);
+    formData.append('video', files[0]);
     console.log(files[0]);
 
     // post 요청
